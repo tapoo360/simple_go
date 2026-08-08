@@ -6,14 +6,22 @@ on :
 
 
 jobs:
-  build:
-    runs-on : ubuntu-latest
+  checkout : 
+    runs-on: ubuntu-22.04
 
     steps:
-      - uses : actions/checkout@v3
-      - name : Set up Go
-        uses : actions/setup-go@v4
-        with :
-          go-version : 1.21
-      - name : Build
-        run : go build -v ./helloworld.go
+      - uses: actions/checkout@3
+
+  process:
+    runs-on: ubuntu-22.04
+    
+    steps:
+      - name: run one-line script
+        run: echo hello, world!
+      - name : runs a multi-line code
+        run : |
+           echo Add other actions to build,
+           echo test, and deploy your project.
+
+      
+      
